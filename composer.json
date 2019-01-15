@@ -1,0 +1,30 @@
+{
+    "name": "sunaoka/laravel-facade-generator",
+    "description": "Provide command line generation of facade layer files.",
+    "keywords": ["laravel", "facade"],
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "sunaoka",
+            "email": "sunaoka@pocari.org"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "sunaoka\\laravel-facade-generator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+            ],
+            "aliases": {
+            }
+        }
+    }
+}
