@@ -16,12 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "sunaoka\\laravel-facade-generator\\": "src/"
+            "Sunaoka\\Generator\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
+                "Sunaoka\\Generator\\GeneratorServiceProvider"
             ],
             "aliases": {
             }

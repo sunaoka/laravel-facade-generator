@@ -1,0 +1,14 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyServiceNamespace;
+use Illuminate\Support\ServiceProvider;
+
+class DummyClass extends ServiceProvider
+{
+    public function register()
+    {
+        $this->app->bind('DummyFacade', DummyService::class);
+    }
+}
