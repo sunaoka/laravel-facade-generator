@@ -1,7 +1,7 @@
 {
     "name": "sunaoka/laravel-facade-generator",
     "description": "Provide command line generation of facade layer files.",
-    "keywords": ["laravel", "facade"],
+    "keywords": ["laravel", "facade", "artisan", "generator"],
     "type": "library",
     "license": "MIT",
     "authors": [
