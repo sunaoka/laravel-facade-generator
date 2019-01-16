@@ -3,7 +3,7 @@
     "description": "Provide command line generation of facade layer files.",
     "keywords": ["laravel", "facade"],
     "type": "library",
-    "license": "Apache-2.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "sunaoka",
