@@ -10,16 +10,6 @@ use Sunaoka\Generator\Commands\ServiceMakeCommand;
 class GeneratorServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
      * Register services.
      *
      * @return void
