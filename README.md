@@ -1,5 +1,9 @@
 # Facade generator for Laravel 5
 
+----
+
+It is an artisan console command that generates services, service providers and facades.
+
 ## Installation
 
 ```bash
@@ -18,7 +22,7 @@ php artisan make:facade [Facade Name]
 php artisan make:facade Foo
 ```
 
-### app/Facades/Foo.php
+### Generated: app/Facades/Foo.php
 
 ```php
 <?php
@@ -36,7 +40,7 @@ class Foo extends Facade
 }
 ```
 
-### app/Providers/FooServiceProvider.php
+### Generated: app/Providers/FooServiceProvider.php
 
 ```php
 <?php
@@ -55,7 +59,7 @@ class FooServiceProvider extends ServiceProvider
 }
 ```
 
-### app/Services/FooService.php
+### Generated: app/Services/FooService.php
 
 ```php
 <?php
