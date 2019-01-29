@@ -38,7 +38,7 @@ class FacadeMakeCommand extends GeneratorCommand
         $result = parent::handle();
 
         if ($result === false) {
-            return $result;
+            return 1;
         }
 
         $nameInput = $this->getNameInput();
