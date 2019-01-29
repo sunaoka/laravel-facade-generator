@@ -1,6 +1,6 @@
 <?php
 
-namespace Sunaoka\Generator\Commands;
+namespace Sunaoka\LaravelFacadeGenerator\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 

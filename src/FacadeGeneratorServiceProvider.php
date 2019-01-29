@@ -1,13 +1,13 @@
 <?php
 
-namespace Sunaoka\Generator;
+namespace Sunaoka\LaravelFacadeGenerator;
 
 use Illuminate\Support\ServiceProvider;
-use Sunaoka\Generator\Commands\FacadeMakeCommand;
-use Sunaoka\Generator\Commands\ProviderMakeCommand;
-use Sunaoka\Generator\Commands\ServiceMakeCommand;
+use Sunaoka\LaravelFacadeGenerator\Commands\FacadeMakeCommand;
+use Sunaoka\LaravelFacadeGenerator\Commands\ProviderMakeCommand;
+use Sunaoka\LaravelFacadeGenerator\Commands\ServiceMakeCommand;
 
-class GeneratorServiceProvider extends ServiceProvider
+class FacadeGeneratorServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
