@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Providers;
+
+use App\Services\FacadeMakeTestService;
+use Illuminate\Support\ServiceProvider;
+
+class FacadeMakeTestServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind('FacadeMakeTest', FacadeMakeTestService::class);
+    }
+}

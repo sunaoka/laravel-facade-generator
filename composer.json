@@ -18,6 +18,11 @@
             "Sunaoka\\LaravelFacadeGenerator\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Sunaoka\\LaravelFacadeGenerator\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -26,5 +31,8 @@
             "aliases": {
             }
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.7"
     }
 }
