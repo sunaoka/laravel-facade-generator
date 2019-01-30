@@ -36,8 +36,16 @@ namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * @see \App\Services\FooService
+ */
 class Foo extends Facade
 {
+    /**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */
     protected static function getFacadeAccessor()
     {
         return 'Foo';
@@ -57,6 +65,11 @@ use Illuminate\Support\ServiceProvider;
 
 class FooServiceProvider extends ServiceProvider
 {
+    /**
+     * Register services.
+     *
+     * @return void
+     */
     public function register()
     {
         $this->app->bind('Foo', FooService::class);
