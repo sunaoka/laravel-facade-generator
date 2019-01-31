@@ -45,6 +45,7 @@ class FacadeMakeCommand extends GeneratorCommand
 
         $this->call('make:service', ['name' => "${nameInput}Service"]);
         $this->call('make:provider-for-facade', ['name' => "${nameInput}ServiceProvider"]);
+        $this->call('make:test', ['name' => "${nameInput}ServiceTest"]);
 
         $this->info(str_repeat('=', 80));
         $this->info("You must register a providers and an alias for the facade in `config/app.php'.");

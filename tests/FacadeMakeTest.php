@@ -10,6 +10,7 @@ class FacadeMakeTest extends TestCase
             app_path('Facades/FacadeMakeTest.php'),
             app_path('Services/FacadeMakeTestService.php'),
             app_path('Providers/FacadeMakeTestServiceProvider.php'),
+            dirname(app_path('')) . '/tests/Feature/FacadeMakeTestServiceTest.php',
         ]);
 
         parent::tearDown();
@@ -35,6 +36,8 @@ class FacadeMakeTest extends TestCase
             __DIR__ . '/stubs/FacadeMakeTestServiceProvider.stub',
             app_path('Providers/FacadeMakeTestServiceProvider.php')
         );
+
+        $this->assertFileExists(dirname(app_path('')) . '/tests/Feature/FacadeMakeTestServiceTest.php');
 
         $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
             ->expectsOutput('Facade already exists!')
