@@ -5,6 +5,11 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * Class FacadeMakeTest
+ *
+ * @method static \Mockery\Expectation shouldReceive(...$methodNames)
+ * @method static \Mockery\Mock        makePartial()
+ *
  * @see \App\Services\FacadeMakeTestService
  */
 class FacadeMakeTest extends Facade

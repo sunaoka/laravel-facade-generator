@@ -5,6 +5,11 @@ namespace DummyNamespace;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * Class DummyClass
+ *
+ * @method static \Mockery\Expectation shouldReceive(...$methodNames)
+ * @method static \Mockery\Mock        makePartial()
+ *
  * @see \App\Services\DummyClassService
  */
 class DummyClass extends Facade
