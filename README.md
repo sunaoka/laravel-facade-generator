@@ -37,6 +37,11 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * Class Foo
+ *
+ * @method static \Mockery\Expectation shouldReceive(...$methodNames)
+ * @method static \Mockery\Mock        makePartial()
+ * 
  * @see \App\Services\FooService
  */
 class Foo extends Facade
@@ -88,6 +93,8 @@ class FooService
 {
 }
 ```
+
+and called `artisan make:test` to create `tests/Feature/FooServiceTest.php`.
 
 ### add config/app.php
 
