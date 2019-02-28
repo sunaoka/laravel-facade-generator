@@ -4,7 +4,7 @@ namespace Sunaoka\LaravelFacadeGenerator\Tests;
 
 class FacadeMakeTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         \File::delete([
             app_path('Facades/FacadeMakeTest.php'),
