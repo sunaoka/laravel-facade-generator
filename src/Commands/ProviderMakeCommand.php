@@ -3,6 +3,7 @@
 namespace Sunaoka\LaravelFacadeGenerator\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 
 class ProviderMakeCommand extends GeneratorCommand
 {
@@ -47,11 +48,11 @@ class ProviderMakeCommand extends GeneratorCommand
     {
         $class = parent::buildClass($name);
 
-        $serviceName = str_replace_last('Provider', '', $this->getNameInput());
+        $serviceName = Str::replaceLast('Provider', '', $this->getNameInput());
 
         $class = str_replace('DummyServiceNamespace', $this->serviceNamespace . '\\' . $serviceName, $class);
         $class = str_replace('DummyService', $serviceName, $class);
-        $class = str_replace('DummyFacade', str_replace_last('Service', '', $serviceName), $class);
+        $class = str_replace('DummyFacade', Str::replaceLast('Service', '', $serviceName), $class);
 
         return $class;
     }
