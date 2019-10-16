@@ -1,4 +1,4 @@
-# Facade generator for Laravel 5
+# Facade generator for Laravel 5 and 6
 
 [![Latest Stable Version](https://poser.pugx.org/sunaoka/laravel-facade-generator/v/stable)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
 [![License](https://poser.pugx.org/sunaoka/laravel-facade-generator/license)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
