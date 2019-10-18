@@ -2,6 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/sunaoka/laravel-facade-generator/v/stable)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
 [![License](https://poser.pugx.org/sunaoka/laravel-facade-generator/license)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/sunaoka/laravel-facade-generator)](composer.json)
 [![Build Status](https://travis-ci.org/sunaoka/laravel-facade-generator.svg?branch=develop)](https://travis-ci.org/sunaoka/laravel-facade-generator)
 [![codecov](https://codecov.io/gh/sunaoka/laravel-facade-generator/branch/develop/graph/badge.svg)](https://codecov.io/gh/sunaoka/laravel-facade-generator)
 
