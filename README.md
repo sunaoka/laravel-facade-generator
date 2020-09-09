@@ -1,9 +1,9 @@
-# Facade generator for Laravel 5, 6 and 7
+# Facade generator for Laravel 5, 6, 7 and 8
 
 [![Latest Stable Version](https://poser.pugx.org/sunaoka/laravel-facade-generator/v/stable)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
 [![License](https://poser.pugx.org/sunaoka/laravel-facade-generator/license)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/sunaoka/laravel-facade-generator)](composer.json)
-[![Laravel](https://img.shields.io/badge/laravel-5.x%20%7C%206.x%20%7C%207.x-red)](https://laravel.com/)
+[![Laravel](https://img.shields.io/badge/laravel-5.x%20%7C%206.x%20%7C%207.x%20%7C%208.x-red)](https://laravel.com/)
 [![Build Status](https://travis-ci.org/sunaoka/laravel-facade-generator.svg?branch=develop)](https://travis-ci.org/sunaoka/laravel-facade-generator)
 [![codecov](https://codecov.io/gh/sunaoka/laravel-facade-generator/branch/develop/graph/badge.svg)](https://codecov.io/gh/sunaoka/laravel-facade-generator)
 
