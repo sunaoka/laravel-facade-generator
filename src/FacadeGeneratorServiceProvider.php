@@ -16,22 +16,30 @@ class FacadeGeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(FacadeMakeCommand::class, function ($app) {
-            return new FacadeMakeCommand($app['files']);
-        });
-
-        $this->app->singleton(ProviderMakeCommand::class, function ($app) {
-            return new ProviderMakeCommand($app['files']);
-        });
-
-        $this->app->singleton(ServiceMakeCommand::class, function ($app) {
-            return new ServiceMakeCommand($app['files']);
-        });
-
-        $this->commands(
-            FacadeMakeCommand::class,
-            ProviderMakeCommand::class,
-            ServiceMakeCommand::class
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/facade-generator-default.php',
+            'facade-generator'
         );
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->publishes(
+            [__DIR__ . '/../config/facade-generator.php' => config_path('facade-generator.php')],
+            'facade-generator-config'
+        );
+
+        if ($this->app->runningInConsole()) {
+            $this->commands(
+                FacadeMakeCommand::class,
+                ProviderMakeCommand::class,
+                ServiceMakeCommand::class
+            );
+        }
     }
 }

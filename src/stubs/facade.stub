@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Mockery\Expectation shouldReceive(...$methodNames)
  * @method static \Mockery\Mock        makePartial()
  *
- * @see \App\Services\DummyClassService
+ * @see \App\Services\DummyService
  */
 class DummyClass extends Facade
 {
@@ -21,6 +21,6 @@ class DummyClass extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'DummyClass';
+        return 'DummyName';
     }
 }

@@ -23,6 +23,12 @@ composer require --dev sunaoka/laravel-facade-generator
 php artisan make:facade [Facade Name]
 ```
 
+## Configurations
+
+```bash
+php artisan vendor:publish --tag=facade-generator-config
+```
+
 ## Example
 
 ```bash
