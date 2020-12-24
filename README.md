@@ -23,6 +23,42 @@ composer require --dev sunaoka/laravel-facade-generator
 php artisan make:facade [Facade Name]
 ```
 
+## Configurations
+
+```bash
+php artisan vendor:publish --tag=facade-generator-config
+```
+
+```php
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Class names suffix
+    |
+    | Sets the string to be suffixed to the class name.
+    |--------------------------------------------------------------------------
+    */
+    'suffix' => [
+        'facade'   => '',
+        'service'  => 'Service',
+        'provider' => 'ServiceProvider',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Generate test
+    |
+    | If `false`, no test will be generated.
+    |--------------------------------------------------------------------------
+    */
+
+    'test' => true,
+];
+```
+
 ## Example
 
 ```bash

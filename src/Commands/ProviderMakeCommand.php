@@ -3,10 +3,15 @@
 namespace Sunaoka\LaravelFacadeGenerator\Commands;
 
 use Illuminate\Console\GeneratorCommand;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Config;
 
 class ProviderMakeCommand extends GeneratorCommand
 {
+    /**
+     * Indicates whether the command should be shown in the Artisan command list.
+     *
+     * @var bool
+     */
     protected $hidden = true;
 
     /**
@@ -14,7 +19,7 @@ class ProviderMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'make:provider-for-facade';
+    protected $name = 'facade:provider';
 
     /**
      * The console command description.
@@ -31,11 +36,6 @@ class ProviderMakeCommand extends GeneratorCommand
     protected $type = 'Provider';
 
     /**
-     * @var string
-     */
-    protected $serviceNamespace;
-
-    /**
      * Build the class with the given name.
      *
      * @param  string $name
@@ -48,13 +48,43 @@ class ProviderMakeCommand extends GeneratorCommand
     {
         $class = parent::buildClass($name);
 
-        $serviceName = Str::replaceLast('Provider', '', $this->getNameInput());
+        $baseName = $this->getNameInput();
+        $serviceClass = $baseName . Config::get('facade-generator.suffix.service');
 
-        $class = str_replace('DummyServiceNamespace', $this->serviceNamespace . '\\' . $serviceName, $class);
-        $class = str_replace('DummyService', $serviceName, $class);
-        $class = str_replace('DummyFacade', Str::replaceLast('Service', '', $serviceName), $class);
+        $class = str_replace(
+            ['DummyServiceNamespace', 'DummyService', 'DummyFacade'],
+            ["{$this->rootNamespace()}Services\\{$serviceClass}", $serviceClass, $baseName],
+            $class
+        );
 
         return $class;
+    }
+
+    /**
+     * Get the destination class path.
+     *
+     * @param  string $name
+     *
+     * @return string
+     */
+    protected function getPath($name)
+    {
+        $name .= Config::get('facade-generator.suffix.provider');
+        return parent::getPath($name);
+    }
+
+    /**
+     * Replace the class name for the given stub.
+     *
+     * @param  string $stub
+     * @param  string $name
+     *
+     * @return string
+     */
+    protected function replaceClass($stub, $name)
+    {
+        $name .= Config::get('facade-generator.suffix.provider');
+        return parent::replaceClass($stub, $name);
     }
 
     /**
@@ -76,7 +106,6 @@ class ProviderMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        $this->serviceNamespace = $rootNamespace . '\Services';
         return $rootNamespace . '\Providers';
     }
 }
