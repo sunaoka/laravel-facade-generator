@@ -1,0 +1,35 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    name: Test
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: ['7.1', '7.2', '7.3', '7.4', '8.0']
+
+    steps:
+      - name: Setup PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install --quiet --no-ansi --prefer-dist --no-progress --no-interaction
+
+      - name: Run test suite
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          fail_ci_if_error: true
