@@ -16,7 +16,7 @@ class FacadeMakeTest extends TestCase
         parent::tearDown();
     }
 
-    public function testMake()
+    public function testMake(): void
     {
         $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
             ->expectsOutput('Facade created successfully.')
