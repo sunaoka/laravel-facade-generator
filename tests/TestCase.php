@@ -7,7 +7,7 @@ use Sunaoka\LaravelFacadeGenerator\FacadeGeneratorServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             FacadeGeneratorServiceProvider::class,
