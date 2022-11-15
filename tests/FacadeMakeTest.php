@@ -20,7 +20,7 @@ class FacadeMakeTest extends TestCase
     {
         if (version_compare($this->app->version(), '9.2.0') < 0) {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
-                ->expectsOutput('created successfully')
+                ->expectsOutput('Facade created successfully.')
                 ->assertExitCode(0);
         } else {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
@@ -47,7 +47,7 @@ class FacadeMakeTest extends TestCase
 
         if (version_compare($this->app->version(), '9.2.0') < 0) {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
-                ->expectsOutput('already exists')
+                ->expectsOutput('Facade already exists!')
                 ->assertExitCode(1);
         } else {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
