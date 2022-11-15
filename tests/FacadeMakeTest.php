@@ -10,7 +10,7 @@ class FacadeMakeTest extends TestCase
             app_path('Facades/FacadeMakeTest.php'),
             app_path('Services/FacadeMakeTestService.php'),
             app_path('Providers/FacadeMakeTestServiceProvider.php'),
-            dirname(app_path('')) . '/tests/Feature/FacadeMakeTestServiceTest.php',
+            base_path('tests/Feature/FacadeMakeTestServiceTest.php'),
         ]);
 
         parent::tearDown();
@@ -43,7 +43,7 @@ class FacadeMakeTest extends TestCase
             app_path('Providers/FacadeMakeTestServiceProvider.php')
         );
 
-        $this->assertFileExists(dirname(app_path('')) . '/tests/Feature/FacadeMakeTestServiceTest.php');
+        $this->assertFileExists(base_path('tests/Feature/FacadeMakeTestServiceTest.php'));
 
         if (version_compare($this->app->version(), '9.2.0') < 0) {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
