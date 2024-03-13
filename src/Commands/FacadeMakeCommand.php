@@ -55,11 +55,28 @@ class FacadeMakeCommand extends GeneratorCommand
             $this->call('make:test', ['name' => "{$serviceClass}Test"]);
         }
 
-        $this->info(str_repeat('=', 80));
-        $this->info("You must register a providers and an alias for the facade in `config/app.php'.");
-        $this->info(str_repeat('-', 80));
-        $this->info("'providers' => [\n    App\Providers\\{$providerClass}::class,\n],");
-        $this->info("'aliases' => [\n    '{$baseName}' => App\Facades\\{$facadeClass}::class,\n],");
+        if (version_compare(app()->version(), '11.0.0') >= 0) {
+            $this->info(
+                "  You must add a providers in `bootstrap/providers.php'.\n\n".
+                "  return [\n".
+                "      {$this->rootNamespace()}Providers\\{$providerClass}::class,\n".
+                "  ];\n\n\n".
+                "  and, You must add an aliases in `config/app.php'.\n\n".
+                "  'aliases' => [\n".
+                "      '{$baseName}' => {$this->rootNamespace()}Facades\\{$facadeClass}::class,\n".
+                '  ],'
+            );
+        } else {
+            $this->info(
+                "You must add a providers and an aliases in `config/app.php'.\n\n".
+                "'providers' => [\n".
+                "    {$this->rootNamespace()}Providers\\{$providerClass}::class,\n".
+                "];\n\n".
+                "'aliases' => [\n".
+                "    '{$baseName}' => {$this->rootNamespace()}Facades\\{$facadeClass}::class,\n".
+                '],'
+            );
+        }
 
         return $result;
     }
