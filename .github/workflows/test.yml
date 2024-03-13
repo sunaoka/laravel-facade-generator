@@ -13,8 +13,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        php: [ '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2' ]
-        laravel: [ 5.8, 6, 7, 8, 9, 10 ]
+        php: [ '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3' ]
+        laravel: [ 5.8, 6, 7, 8, 9, 10, 11 ]
         exclude:
           - php: 7.1
             laravel: 6
@@ -26,30 +26,42 @@ jobs:
             laravel: 9
           - php: 7.1
             laravel: 10
+          - php: 7.1
+            laravel: 11
           - php: 7.2
             laravel: 8
           - php: 7.2
             laravel: 9
           - php: 7.2
             laravel: 10
+          - php: 7.2
+            laravel: 11
           - php: 7.3
             laravel: 9
           - php: 7.3
             laravel: 10
+          - php: 7.3
+            laravel: 11
           - php: 7.4
             laravel: 9
           - php: 7.4
             laravel: 10
+          - php: 7.4
+            laravel: 11
           - php: 8.0
             laravel: 5.8
           - php: 8.0
             laravel: 10
+          - php: 8.0
+            laravel: 11
           - php: 8.1
             laravel: 5.8
           - php: 8.1
             laravel: 6
           - php: 8.1
             laravel: 7
+          - php: 8.1
+            laravel: 11
           - php: 8.2
             laravel: 5.8
           - php: 8.2
@@ -57,6 +69,14 @@ jobs:
           - php: 8.2
             laravel: 7
           - php: 8.2
+            laravel: 8
+          - php: 8.3
+            laravel: 5.8
+          - php: 8.3
+            laravel: 6
+          - php: 8.3
+            laravel: 7
+          - php: 8.3
             laravel: 8
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
@@ -70,7 +90,7 @@ jobs:
           tools: composer:v2
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
@@ -85,7 +105,7 @@ jobs:
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml

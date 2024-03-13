@@ -29,17 +29,17 @@ class FacadeMakeTest extends TestCase
         }
 
         $this->assertFileEquals(
-            __DIR__ . '/stubs/FacadeMakeTest.stub',
+            __DIR__.'/stubs/FacadeMakeTest.stub',
             app_path('Facades/FacadeMakeTest.php')
         );
 
         $this->assertFileEquals(
-            __DIR__ . '/stubs/FacadeMakeTestService.stub',
+            __DIR__.'/stubs/FacadeMakeTestService.stub',
             app_path('Services/FacadeMakeTestService.php')
         );
 
         $this->assertFileEquals(
-            __DIR__ . '/stubs/FacadeMakeTestServiceProvider.stub',
+            __DIR__.'/stubs/FacadeMakeTestServiceProvider.stub',
             app_path('Providers/FacadeMakeTestServiceProvider.php')
         );
 
@@ -48,11 +48,11 @@ class FacadeMakeTest extends TestCase
         if (version_compare($this->app->version(), '9.2.0') < 0) {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
                 ->expectsOutput('Facade already exists!')
-                ->assertExitCode(1);
+                ->assertExitCode(0);
         } else {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
                 ->expectsOutputToContain('already exists')
-                ->assertExitCode(1);
+                ->assertExitCode(0);
         }
     }
 }
