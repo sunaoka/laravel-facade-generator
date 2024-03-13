@@ -1,9 +1,9 @@
-# Facade generator for Laravel 5, 6, 7, 8, 9 and 10
+# Facade generator for Laravel
 
 [![Latest Stable Version](https://poser.pugx.org/sunaoka/laravel-facade-generator/v/stable)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
 [![License](https://poser.pugx.org/sunaoka/laravel-facade-generator/license)](https://packagist.org/packages/sunaoka/laravel-facade-generator)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/sunaoka/laravel-facade-generator)](composer.json)
-[![Laravel](https://img.shields.io/badge/laravel-5.x%20%7C%206.x%20%7C%207.x%20%7C%208.x%20%7C%209.x%20%7C%2010.x-red)](https://laravel.com/)
+[![Laravel](https://img.shields.io/badge/laravel-%3E=%205.8-red)](https://laravel.com/)
 [![Test](https://github.com/sunaoka/laravel-facade-generator/actions/workflows/test.yml/badge.svg)](https://github.com/sunaoka/laravel-facade-generator/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/sunaoka/laravel-facade-generator/branch/develop/graph/badge.svg)](https://codecov.io/gh/sunaoka/laravel-facade-generator)
 
@@ -138,14 +138,33 @@ class FooService
 
 and called `artisan make:test` to create `tests/Feature/FooServiceTest.php`.
 
-### add config/app.php
+### Laravel 5.8 to 10.x
 
-You must register a providers and an alias for the facade in `config/app.php'.
+You must add a providers and an aliases in `config/app.php`.
 
 ```php
 'providers' => [
     App\Providers\FooServiceProvider::class,
 ],
+
+'aliases' => [
+    'Foo' => App\Facades\Foo::class,
+],
+```
+
+### Laravel 11.x
+
+You must add a providers in `bootstrap/providers.php`.
+
+```php
+return [
+    App\Providers\FooServiceProvider::class,
+];
+```
+
+and, You must add an aliases in `config/app.php`.
+
+```php
 'aliases' => [
     'Foo' => App\Facades\Foo::class,
 ],
