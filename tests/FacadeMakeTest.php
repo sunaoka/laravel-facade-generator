@@ -29,17 +29,17 @@ class FacadeMakeTest extends TestCase
         }
 
         $this->assertFileEquals(
-            __DIR__ . '/stubs/FacadeMakeTest.stub',
+            __DIR__.'/stubs/FacadeMakeTest.stub',
             app_path('Facades/FacadeMakeTest.php')
         );
 
         $this->assertFileEquals(
-            __DIR__ . '/stubs/FacadeMakeTestService.stub',
+            __DIR__.'/stubs/FacadeMakeTestService.stub',
             app_path('Services/FacadeMakeTestService.php')
         );
 
         $this->assertFileEquals(
-            __DIR__ . '/stubs/FacadeMakeTestServiceProvider.stub',
+            __DIR__.'/stubs/FacadeMakeTestServiceProvider.stub',
             app_path('Providers/FacadeMakeTestServiceProvider.php')
         );
 

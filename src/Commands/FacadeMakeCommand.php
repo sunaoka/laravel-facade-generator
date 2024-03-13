@@ -44,9 +44,9 @@ class FacadeMakeCommand extends GeneratorCommand
         }
 
         $baseName = $this->getNameInput();
-        $facadeClass = $baseName . Config::get('facade-generator.suffix.facade');
-        $serviceClass = $baseName . Config::get('facade-generator.suffix.service');
-        $providerClass = $baseName . Config::get('facade-generator.suffix.provider');
+        $facadeClass = $baseName.Config::get('facade-generator.suffix.facade');
+        $serviceClass = $baseName.Config::get('facade-generator.suffix.service');
+        $providerClass = $baseName.Config::get('facade-generator.suffix.provider');
 
         $this->call('facade:service', ['name' => $baseName]);
         $this->call('facade:provider', ['name' => $baseName]);
@@ -67,8 +67,7 @@ class FacadeMakeCommand extends GeneratorCommand
     /**
      * Build the class with the given name.
      *
-     * @param  string $name
-     *
+     * @param  string  $name
      * @return string
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
@@ -78,41 +77,39 @@ class FacadeMakeCommand extends GeneratorCommand
         $class = parent::buildClass($name);
 
         $baseName = $this->getNameInput();
-        $serviceClass = $baseName . Config::get('facade-generator.suffix.service');
+        $serviceClass = $baseName.Config::get('facade-generator.suffix.service');
 
-        $class = str_replace(
+        return str_replace(
             ['DummyService', 'DummyName'],
             [$serviceClass, $baseName],
             $class
         );
-
-        return $class;
     }
 
     /**
      * Get the destination class path.
      *
-     * @param  string $name
-     *
+     * @param  string  $name
      * @return string
      */
     protected function getPath($name)
     {
         $name .= Config::get('facade-generator.suffix.facade');
+
         return parent::getPath($name);
     }
 
     /**
      * Replace the class name for the given stub.
      *
-     * @param  string $stub
-     * @param  string $name
-     *
+     * @param  string  $stub
+     * @param  string  $name
      * @return string
      */
     protected function replaceClass($stub, $name)
     {
         $name .= Config::get('facade-generator.suffix.facade');
+
         return parent::replaceClass($stub, $name);
     }
 
@@ -123,18 +120,17 @@ class FacadeMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../stubs/facade.stub';
+        return __DIR__.'/../stubs/facade.stub';
     }
 
     /**
      * Get the default namespace for the class.
      *
-     * @param  string $rootNamespace
-     *
+     * @param  string  $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Facades';
+        return $rootNamespace.'\Facades';
     }
 }

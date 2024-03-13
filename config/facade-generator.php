@@ -10,8 +10,8 @@ return [
     |--------------------------------------------------------------------------
     */
     'suffix' => [
-        'facade'   => '',
-        'service'  => 'Service',
+        'facade' => '',
+        'service' => 'Service',
         'provider' => 'ServiceProvider',
     ],
 

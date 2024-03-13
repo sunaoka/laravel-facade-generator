@@ -17,7 +17,7 @@ class FacadeGeneratorServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/facade-generator-default.php',
+            __DIR__.'/../config/facade-generator-default.php',
             'facade-generator'
         );
     }
@@ -30,7 +30,7 @@ class FacadeGeneratorServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes(
-            [__DIR__ . '/../config/facade-generator.php' => config_path('facade-generator.php')],
+            [__DIR__.'/../config/facade-generator.php' => config_path('facade-generator.php')],
             'facade-generator-config'
         );
 
