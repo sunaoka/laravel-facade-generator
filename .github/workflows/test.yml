@@ -9,6 +9,11 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+
+    env:
+      latest_php: 8.3
+      latest_laravel: 11
+
     strategy:
       fail-fast: false
       matrix:
@@ -93,13 +98,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: |
-          composer require "illuminate/support=^${{ matrix.laravel }}" --no-update
-          composer update --prefer-dist --no-interaction --no-progress
+        uses: nick-fields/retry@v3
+        with:
+          timeout_seconds: 30
+          max_attempts: 3
+          command: |
+            composer require "illuminate/support=^${{ matrix.laravel }}" --no-update --no-plugins
+            composer install --quiet --no-plugins --no-ansi --prefer-dist --no-progress --no-interaction
 
       - name: Migrate phpunit XML configuration
-        continue-on-error: true
-        run: vendor/bin/phpunit --migrate-configuration
+        run: vendor/bin/phpunit --migrate-configuration || true
 
       - name: Run test suite
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
@@ -110,3 +118,4 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
           fail_ci_if_error: false
+        if: matrix.php == env.latest_php && matrix.laravel == env.latest_laravel
