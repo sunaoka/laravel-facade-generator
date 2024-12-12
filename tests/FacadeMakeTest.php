@@ -4,7 +4,7 @@ namespace Sunaoka\LaravelFacadeGenerator\Tests;
 
 class FacadeMakeTest extends TestCase
 {
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         \File::delete([
             app_path('Facades/FacadeMakeTest.php'),
@@ -16,7 +16,7 @@ class FacadeMakeTest extends TestCase
         parent::tearDown();
     }
 
-    public function testMake(): void
+    public function test_make(): void
     {
         if (version_compare($this->app->version(), '9.2.0') < 0) {
             $this->artisan('make:facade', ['name' => 'FacadeMakeTest'])
