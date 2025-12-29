@@ -13,6 +13,7 @@
          stopOnError="false"
          stopOnFailure="false"
          verbose="true"
+         cacheResultFile=".phpunit.cache"
 >
     <testsuites>
         <testsuite name="test">
